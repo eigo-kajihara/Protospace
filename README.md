@@ -18,7 +18,7 @@ has_many :prototypes, likes, comments
 
 ## Prototype
 ### association
-
+a
 ```
 has_many :captured_images, comments, likes
 belongs_to :user
@@ -67,4 +67,8 @@ belongs_to :user, :prototype
 - content
 - user_id
 - prototype_id
+
+
+
+
 
