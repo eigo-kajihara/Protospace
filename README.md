@@ -72,3 +72,4 @@ belongs_to :user, :prototype
 
 
 
+
