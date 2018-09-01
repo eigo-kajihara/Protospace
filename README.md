@@ -14,7 +14,7 @@ has_many :prototypes, likes, comments
 - avatar
 - profile
 - position
-- occupation
+- occupationa
 
 ## Prototype
 ### association
