@@ -1,9 +1,0 @@
-%div
-  = comments.each do |comment|
-  %div
-    = image_tag comment.avatar
-  %div
-    %h4
-      = comment.user.name
-    %p
-      = comment.text
