@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: :show
+  before_action :set_prototype, only: [:show, :destroy]
 
   def index
     @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
@@ -15,15 +15,27 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
-      redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'
-     end
+      redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'    
+    end
   end
 
   def destroy
-    @prototype.destroy if prototype.user_id == current_user.id
+    @prototype.destroy if @prototype.user_id == current_user.id
+    redirect_to :root, notice: 'Prototype was successfully deleted.'
+    # .alert.alert-success
+  # %a.close{"data-dismiss" => "alert"} ×
+  # Prototype was successfully deleted.
+
+
+  #   .alert.alert-success
+  # %a.close{"data-dismiss" => "alert"} ×   data-dismiss="alert"
+  
   end
 
   def show
+  end
+
+  def edit
   end
 
   private
