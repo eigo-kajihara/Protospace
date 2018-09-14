@@ -1,11 +1,23 @@
 .col-sm-4.col-md-3.proto-content
-  .thumbnail
-    = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
-    .caption
-      %h3
-        = prototype.title
-      .proto-meta
-        .proto-user
-          = link_to prototype.user.name, user_path(prototype.user)
-        .proto-posted
-          = prototype.posted_date
+ .dropdown.drop_menu_location
+  %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+   Action
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+   %li
+    / %a{:rel => "nofollow", "data-method" => "delete", :href => prototype_path(current_user)} Delete
+   %li
+    = link_to "Delete", prototype_path(prototype), "data-method" => "delete"
+    
+    / %a{:href => prototype_path(prototype)/edit_user_path} Edit
+
+ .thumbnail
+  = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
+  .caption
+   %h3
+    = prototype.title
+   .proto-meta
+    .proto-user
+     = link_to prototype.user.name, user_path(prototype.user)
+    .proto-posted
+     = prototype.posted_date
+  %ul.proto-tag-list.list-inline
