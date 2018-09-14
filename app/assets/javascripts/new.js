@@ -16,7 +16,6 @@ function fileLoad(field, onLoadCallback) {
 // Sub Thumbnailsにプレビュー表示
 function upload_sub_image(field, i){
   fileLoad(field, function(e){
-    console.log("this");
     $("#sub_" + i + "_preview").attr("src", e.currentTarget.result).show()
     $("#image_" + i + "_uploader").css("background", "white");
   });
