@@ -21,15 +21,13 @@
           %ul.proto-sub-list.list-group
             - 3.times do |i|
               %li.list-group-item.col-md-4
-                .image-upload#sub_image_uploader_\\#{i}
-
+                .image-upload
                   = f.fields_for :captured_images do |image|
                     %img#sub_preview{:width => "213.33", :height => "200",:src => ""}/
-
-                    / %img#sub_i_preview{:width => "213.33", :height => "200",:src => ""}/
-                    / = image.file_field :content
-                    / = image.hidden_field :status, value: "sub"
-                }
+                    / .image-upload#image_#{i}_uploader
+                    / %img#sub_#{i}_preview{:width => "213.33", :height => "200",:src => ""}/
+                    = image.file_field :content
+                    = image.hidden_field :status, value: "sub"
 
 
       .row.proto-description
@@ -46,7 +44,7 @@
   :javascript
       $(function(){
         var $cover_image = $(".cover-image-upload input[type = file]");
-        var $sub_0_image = $("#sub_0_uploader input[type = file]");
+        var $sub_0_image = $("#image_0_uploader input[type = file]");
         var $sub_1_image = $("#image_1_uploader input[type = file]");
         var $sub_2_image = $("#image_2_uploader input[type = file]");
 

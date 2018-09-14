@@ -28,3 +28,4 @@ function fileLoad(field, onLoadCallback) {
   reader.onload = onLoadCallback;
   reader.readAsDataURL(file);
 }
+
