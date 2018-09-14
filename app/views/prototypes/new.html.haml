@@ -10,25 +10,21 @@
       .row
         .col-md-12
           %h4 Main Thumbnail
-          .cover-image-upload#main_image_uploader
+          .cover-image-upload{id: "main_image_uploader"}
             = f.fields_for :captured_images do |image|
-              %img#main_preview{:width => "730", :height => "500", :src => ""}/
               = image.file_field :content, required: true
               = image.hidden_field :status, value: "main"
-
+              %img{id: "main_preview", :src => ""}/
         .col-md-12
           %h4 Sub Thumbnails
           %ul.proto-sub-list.list-group
             - 3.times do |i|
               %li.list-group-item.col-md-4
-                .image-upload
+                %div.image-upload{ id: "image_" + "#{i}" + "_uploader"}
                   = f.fields_for :captured_images do |image|
-                    %img#sub_preview{:width => "213.33", :height => "200",:src => ""}/
-                    / .image-upload#image_#{i}_uploader
-                    / %img#sub_#{i}_preview{:width => "213.33", :height => "200",:src => ""}/
                     = image.file_field :content
                     = image.hidden_field :status, value: "sub"
-
+                    %img{id: "sub_" + "#{i}" + "_preview" , :src => ""}/
 
       .row.proto-description
         .col-md-12
