@@ -21,7 +21,7 @@ class PrototypesController < ApplicationController
 
   def destroy
     @prototype.destroy if @prototype.user_id == current_user.id
-    redirect_to :root
+    redirect_to :root, notice: 'Prototype was successfully deleted.'
     # .alert.alert-success
   # %a.close{"data-dismiss" => "alert"} ×
   # Prototype was successfully deleted.
