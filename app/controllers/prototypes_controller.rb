@@ -25,6 +25,7 @@ class PrototypesController < ApplicationController
     # .alert.alert-success
   # %a.close{"data-dismiss" => "alert"} ×
   # Prototype was successfully deleted.
+  test
 
 
   #   .alert.alert-success
