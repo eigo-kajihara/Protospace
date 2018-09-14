@@ -12,19 +12,26 @@
           %h4 Main Thumbnail
           .cover-image-upload#main_image_uploader
             = f.fields_for :captured_images do |image|
-              %img
+              %img#main_preview{:width => "730", :height => "500", :src => ""}/
               = image.file_field :content, required: true
               = image.hidden_field :status, value: "main"
+
         .col-md-12
           %h4 Sub Thumbnails
           %ul.proto-sub-list.list-group
             - 3.times do |i|
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload#sub_image_uploader_\\#{i}
+
                   = f.fields_for :captured_images do |image|
-                    %img
-                    = image.file_field :content
-                    = image.hidden_field :status, value: "sub"
+                    %img#sub_preview{:width => "213.33", :height => "200",:src => ""}/
+
+                    / %img#sub_i_preview{:width => "213.33", :height => "200",:src => ""}/
+                    / = image.file_field :content
+                    / = image.hidden_field :status, value: "sub"
+                }
+
+
       .row.proto-description
         .col-md-12
           %h4 Catch Copy
@@ -34,3 +41,30 @@
           = f.text_area :concept, require: true, placeholder: "Input Concept"
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
+
+
+  :javascript
+      $(function(){
+        var $cover_image = $(".cover-image-upload input[type = file]");
+        var $sub_0_image = $("#sub_0_uploader input[type = file]");
+        var $sub_1_image = $("#image_1_uploader input[type = file]");
+        var $sub_2_image = $("#image_2_uploader input[type = file]");
+
+      
+        $cover_image.change(function(){
+          upload_main_image(this)
+        });
+      
+        $sub_0_image.change(function(){
+          upload_sub_image(this, 0)
+        });
+      
+      
+        $sub_1_image.change(function(){
+          upload_sub_image(this, 1)
+        });
+      
+        $sub_2_image.change(function(){
+          upload_sub_image(this, 2)
+        });
+      });
