@@ -1,0 +1,9 @@
+%div
+- @comments.each do |comment|
+  %div
+    = image_tag comment.user.avatar, size: "60x60"
+  %div
+    %h4
+      = comment.user.name
+    %p
+      = comment.text

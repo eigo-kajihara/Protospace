@@ -1,11 +1,12 @@
 $(function(){
   function buildHTML(comment){
     var html = `<p>
-                  <strong>
-                    <a href=/users/${comment.user_id}>${comment.user_name}</a>
-                    ：
-                  </strong>
-                  ${comment.text}
+                  <div><img src ="${comment.user_avatar}" width="60" height="60" ></div>
+                  <div>
+                    <h4>${comment.user_name}</h4>
+                    <p>${comment.text}</p>
+                  </div>
+
 
                 </p>`
     return html;
@@ -24,8 +25,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('#comments_area').append(html)
-      $('.textform-control').val('')
+      $('.comments_area').append(html)
+      $('.textbox').val('')
     })
     .fail(function(){
       alert('error');
