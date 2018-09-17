@@ -12,9 +12,9 @@
           %h4 Main Thumbnail
           .cover-image-upload{id: "main_image_uploader"}
             = f.fields_for :captured_images do |image|
+              %img{id: "main_preview", :src => ""}/
               = image.file_field :content, required: true
               = image.hidden_field :status, value: "main"
-              %img{id: "main_preview", :src => ""}/
         .col-md-12
           %h4 Sub Thumbnails
           %ul.proto-sub-list.list-group
@@ -22,10 +22,9 @@
               %li.list-group-item.col-md-4
                 %div.image-upload{ id: "image_" + "#{i}" + "_uploader"}
                   = f.fields_for :captured_images do |image|
+                    %img{id: "sub_" + "#{i}" + "_preview" , :src => ""}/
                     = image.file_field :content
                     = image.hidden_field :status, value: "sub"
-                    %img{id: "sub_" + "#{i}" + "_preview" , :src => ""}/
-
       .row.proto-description
         .col-md-12
           %h4 Catch Copy
