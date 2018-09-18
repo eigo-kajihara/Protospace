@@ -432,6 +432,12 @@ body {
     }
   }
 
+  .image-upload img, .cover-image-upload img {
+      display: none;
+      width: 100%;
+      height: 100%;
+  }
+  
   .list-group-item {
     border: 0;
     margin-bottom: 20px;
@@ -452,6 +458,12 @@ body {
         filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
         cursor: pointer;
       }
+    }
+
+    .image-upload img, .cover-image-upload img {
+        display: none;
+        width: 100%;
+        height: 100%;
     }
 
     .image-upload-plus {
