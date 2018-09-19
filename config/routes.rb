@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :prototypes, only: [:index, :new, :create, :show, :destroy]
   resources :users, only: [:show, :edit, :update]
+  get   '/tags'  =>  'prototypes#tags'       #tag一覧画面
 end
