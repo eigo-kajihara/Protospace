@@ -1,14 +1,12 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<p>
-                  <div><img src ="${comment.user_avatar}" width="60" height="60" ></div>
-                  <div>
-                    <h4>${comment.user_name}</h4>
+    var html = `<div class="media">
+                  <div class="media-left"><img src ="${comment.user_avatar}" width="60" height="60" ></div>
+                  <div class="media-body">
+                    <h4 class="media-heading">${comment.user_name}</h4>
                     <p>${comment.text}</p>
                   </div>
-
-
-                </p>`
+                </div>`
     return html;
   }
   $('#new_comment').on('submit', function(e){
@@ -25,7 +23,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.comments_area').append(html)
+      $('#comment_list').append(html)
       $('.textbox').val('')
     })
     .fail(function(){

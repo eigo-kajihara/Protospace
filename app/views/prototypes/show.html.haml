@@ -39,9 +39,9 @@
           %a{href: "#", class: "btn btn-default"} wireframe
 
     %div{:class => "row proto-comments"}
-      .col-md-12
-        %h4 Comment
-        .comments_area
+      %h4{class: "col-md-12"} Comment
+      %div{class: "col-md-8", id: "comment_area"}
+        %div{id: "comment_list"}
           = render "comment"
 
         %div
