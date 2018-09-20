@@ -1,0 +1,10 @@
+.container.proto-tags
+	.container
+		.row
+			.tag-list
+				.h2 Tags list
+				/ tags_listカラムを全部並べる（同じタグは除外する）繰り返し構文を書く。タグの重複入力はできるが、並べるタグ結果は一度だけになるのでindex結果を並べる？
+				%ul
+					%li.col-md-4
+					/ .btn_btn-defoult
+					/ =link_to "/tags/tags_list"
