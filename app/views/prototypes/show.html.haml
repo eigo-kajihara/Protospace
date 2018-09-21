@@ -46,3 +46,21 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+
+    %div{:class => "row proto-comments"}
+      %h4{class: "col-md-12", id: "comment_count"} Comment ( #{@prototype.comments.count} )
+      %div{class: "col-md-8", id: "comment_area"}
+        %div{id: "comment_list"}
+          = render "comment"
+
+        %div
+          - if current_user
+            %form{action: "/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment"}
+              %h4 Write a comment
+              %div
+              .row
+                %div{:class => "form-group col-md-10"}
+                  %textarea{:rows => "3", :class => "textbox", :name => "text", :id => "comment_text", :placeholder => "Your comments"}
+                %div{:class => "form-group col-md-2"}
+                  %input{:name => "comment", :type => "submit", :value => "COMMENT", :class => "btn btn-primary"}
+                %br
