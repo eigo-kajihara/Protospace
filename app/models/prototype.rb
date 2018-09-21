@@ -5,8 +5,8 @@ class Prototype < ActiveRecord::Base
   has_many :tags, through: :view_tags, dependent: :destroy
 
   accepts_nested_attributes_for  :captured_images, reject_if: :reject_sub_images
-  accepts_nested_attributes_for  reject_if: :reject_tags
-  accepts_nested_attributes_for reject_if: :reject_view_tags
+  accepts_nested_attributes_for  :tags
+  accepts_nested_attributes_for :view_tags
 
   validates :title,
             :catch_copy,
