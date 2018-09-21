@@ -1,4 +1,5 @@
 .col-sm-4.col-md-3.proto-content
+<<<<<<< HEAD
  .dropdown.drop_menu_location
   %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
    Action
@@ -12,12 +13,37 @@
 
  .thumbnail
   = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
+=======
+ - if user_signed_in? && current_user.id == prototype.user_id
+  .dropdown.drop_menu_location
+   %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+    Action
+   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+    %li
+     = link_to "Delete", prototype_path(prototype), "data-method" => "delete"
+    / %li
+    /  = link_to "Edit", edit_prototype_path(prototype), "data-method" => "edit" 
+  .thumbnail
+   = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
+>>>>>>> master
   .caption
    %h3
     = prototype.title
    .proto-meta
-    .proto-user
-     = link_to prototype.user.name, user_path(prototype.user)
-    .proto-posted
-     = prototype.posted_date
-  %ul.proto-tag-list.list-inline
+   .proto-user
+    = link_to prototype.user.name, user_path(prototype.user)
+   .proto-posted
+    = prototype.posted_date
+   %ul.proto-tag-list.list-inline
+ - else
+  .thumbnail
+   = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
+  .caption
+   %h3
+    = prototype.title
+   .proto-meta
+   .proto-user
+    = link_to prototype.user.name, user_path(prototype.user)
+   .proto-posted
+    = prototype.posted_date
+   %ul.proto-tag-list.list-inline

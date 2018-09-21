@@ -9,17 +9,12 @@
         %li.btn-default.btn-popular
           = link_to "Popular PROTO", "/"
         %li.btn-default.btn-popular
-<<<<<<< HEAD
-          = link_to "Newest", "#"
-      = link_to "VIEW TAGS", "/tags", class: "btn btn-default col-lg-1"
-=======
           = link_to "Newest PROTO", "/prototypes/newest"
       = link_to "VIEW TAGS", "#", class: "btn btn-default col-lg-1"
->>>>>>> master
 
 .container.proto-list
   .row
-    / = render partial: 'prototype', collection: @prototypes
+    = render partial: 'prototype', collection: @prototypes
 
 .text-center
   = paginate @prototypes
@@ -42,6 +37,4 @@
   /   %li
   /     %a{"aria-label": "Next", href: "#"}
   /       %span{"aria-hidden": "true"} »
-
-
 
