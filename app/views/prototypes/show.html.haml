@@ -13,6 +13,15 @@
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)
             .degree
               = @prototype.user.position
+    .col-md-6.clearfix
+      .likes-box
+        %button#like-button.btn.btn-default.decrement-button
+          %img{:src => "/assets/icon_heart.svg"}
+          Like
+          %span#like-sum.num 100
+
+
+
   .row
     .col-md-9.image-box
       = image_tag(@prototype.set_main_thumbnail.large, class: 'img-responsive img-size-fix', style: "margin: 0 auto;")
