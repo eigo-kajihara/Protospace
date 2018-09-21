@@ -14,7 +14,7 @@
 
 .container.proto-list
   .row
-    / = render partial: 'prototype', collection: @prototypes
+    = render partial: 'prototype', collection: @prototypes
 
 .text-center
   = paginate @prototypes
@@ -37,6 +37,4 @@
   /   %li
   /     %a{"aria-label": "Next", href: "#"}
   /       %span{"aria-hidden": "true"} »
-
-
 

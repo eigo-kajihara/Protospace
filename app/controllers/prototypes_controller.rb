@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :destroy]
 
   def index
-    @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.order("status DESC").page(params[:page]).per(8)
   end
 
   def new
@@ -22,13 +22,6 @@ class PrototypesController < ApplicationController
   def destroy
     @prototype.destroy if @prototype.user_id == current_user.id
     redirect_to :root, notice: 'Prototype was successfully deleted.'
-    # .alert.alert-success
-  # %a.close{"data-dismiss" => "alert"} ×
-  # Prototype was successfully deleted.
-
-
-  #   .alert.alert-success
-  # %a.close{"data-dismiss" => "alert"} ×   data-dismiss="alert"
   
   end
 
@@ -36,6 +29,10 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+  end
+
+  def newest
+    @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
   end
 
   private
