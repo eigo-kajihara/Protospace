@@ -30,4 +30,20 @@ $(function(){
       alert('error');
     })
   })
+
+  $('#commentlist__delete').click(function(e) {
+    e.preventDefault();
+    var url = $(this).attr('action')
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      dataType: "json"
+    })
+    .done(function() {
+      $('#comment_'+comment.id).fadeOut();
+    })
+    .fail(function() {
+      alert("エラー");
+    })
+  })
 })

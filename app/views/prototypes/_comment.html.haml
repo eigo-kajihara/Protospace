@@ -1,5 +1,5 @@
 - @comments.each do |comment|
-  .media
+  .media{id: "comment_#{comment.id}"}
     .media-left
       = image_tag comment.user.avatar, size: "60x60"
     .media-body
@@ -7,3 +7,8 @@
         = comment.user.name
       %p
         = comment.text
+      - if current_user
+        %span
+          = link_to "編集", "#{@prototype.id}/comments/#{comment.id}/edit", method: :get, remote: true
+        %span{id: "comment_list__delete"}
+          = link_to "削除", "#{@prototype.id}/comments/#{comment.id}", method: :delete, remote: true
