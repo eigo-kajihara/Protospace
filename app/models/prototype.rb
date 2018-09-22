@@ -1,14 +1,7 @@
 class Prototype < ActiveRecord::Base
   belongs_to :user
-<<<<<<< HEAD
-<<<<<<< HEAD
   has_many :view_tags, dependent: :destroy
-=======
   has_many :comments
->>>>>>> master
-=======
-  has_many :comments
->>>>>>> master
   has_many :captured_images, dependent: :destroy
   has_many :tags, through: :view_tags, dependent: :destroy
 
