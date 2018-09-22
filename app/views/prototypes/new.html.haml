@@ -32,9 +32,18 @@
         .col-md-12
           %h4 Concept
           = f.text_area :concept, require: true, placeholder: "Input Concept"
+      .row
+        .col-md-12
+          %h4 Tag List
+          .col-md-3
+            %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "Web Design", :type => "text"}/
+          .col-md-3
+            %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "UI", :type => "text"}/
+          .col-md-3
+            %input#prototype_tag_list_{:name => "prototype[tag_list][]", :placeholder => "Application", :type => "text"}/
+
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
-
 
   :javascript
       $(function(){
