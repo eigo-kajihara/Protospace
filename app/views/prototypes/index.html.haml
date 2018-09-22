@@ -13,7 +13,7 @@
       = link_to "VIEW TAGS", "/tags", class: "btn btn-default col-lg-1"
 .container.proto-list
   .row
-    / = render partial: 'prototype', collection: @prototypes
+    = render partial: 'prototype', collection: @prototypes
 
 .text-center
   = paginate @prototypes
