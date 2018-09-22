@@ -6,4 +6,5 @@ Rails.application.routes.draw do
    resources :comments, only: [:create, :destroy, :edit, :update]
   end
   resources :users, only: [:show, :edit, :update]
+  get   '/tags'  =>  'prototypes#tags'       #tag一覧画面
 end

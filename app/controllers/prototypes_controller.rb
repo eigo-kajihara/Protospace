@@ -8,6 +8,7 @@ class PrototypesController < ApplicationController
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
+    # @prototype.tags.build
   end
 
   def create
@@ -15,7 +16,8 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
-      redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'    
+      redirect_to :root, alert: 'YNew prototype was unsuccessfully created'
+      # newページへ移動せず/prototypes画面でエラーになるので、暫定でrootに設定
     end
   end
 
@@ -48,7 +50,9 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status]
+      captured_images_attributes: [:content, :status],
+      tags_attributes: [:tag_list],
+      view_tags_attributes: [:prototype_id, :tag_id]
     )
   end
 end
